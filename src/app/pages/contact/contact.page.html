@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Contact us @ Hardt Consulting</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="page">
+
+  <h1 class="contact-us-heading">Need a quote for software development?</h1>
+  <hr/>
+
+  <form [formGroup]="contactusForm" id="contactUsForm">
+    <div>
+      <div>
+        <ion-item>
+          <ion-label position="floating">Name</ion-label>
+          <ion-input id="name"
+            name="name" 
+            formControlName="name" 
+            autofocus="true" 
+            clear-input="true" 
+            debounce="100"
+            placeholder="e.g. John / Jane">
+          </ion-input>
+        </ion-item>
+      </div>
+
+      <div>
+        <ion-item>
+          <ion-label position="floating">Surname</ion-label>
+          <ion-input id="surname"
+            name="surname" 
+            formControlName="surname" 
+            clear-input="true" 
+            debounce="100"
+            placeholder="e.g. Doe">
+          </ion-input>
+        </ion-item>
+      </div>
+    </div>
+
+    <div>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input id="email"
+          name="email" 
+          formControlName="email" 
+          autofocus="true" 
+          clear-input="true" 
+          type="email"
+          debounce="100"
+          placeholder="e.g. john.doe@example.com">
+        </ion-input>
+      </ion-item>
+    </div>
+    
+
+    <div>
+      <ion-item>
+        <ion-label position="floating">Description</ion-label>
+        <ion-textarea id="query"
+          name="query" 
+          formControlName="query" 
+          autoGrow="true"
+          clear-input="true" 
+          debounce="100"
+          rows="5"
+          placeholder="e.g. I need a website / custom application developed for my business ...">
+        </ion-textarea>
+      </ion-item>
+    </div>
+    <br />
+    <div>
+      <ion-button type="submit" color="primary" size="medium" expand="full" > <ion-icon>send-outline</ion-icon> Send</ion-button>
+    </div>
+  </form>
+
+  <div>
+    
+  </div>
+
+</ion-content>

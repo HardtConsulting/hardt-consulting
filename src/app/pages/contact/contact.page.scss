@@ -1,0 +1,26 @@
+
+.contact-us-heading {
+    text-align: center;
+}
+
+#contactUsForm {
+    display: grid;
+    grid-template-columns: repeat(1fr 1fr);
+    grid-template-rows: repeat(4, auto);
+    column-gap: 15px;
+    margin: 50px;
+    width: auto;
+
+    > div:first-child {
+        > div {
+            width: 48%;
+            margin: 0 1%;
+            float: left;
+            max-height: 100px;
+        }
+    }
+
+    >div {
+        width: 100%;
+    }
+}

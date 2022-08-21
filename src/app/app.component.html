@@ -1,0 +1,49 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-content>
+        <ion-list id="header-list">
+          <img class="logo" src="assets/hardt-consulting-icon.png" />
+          <!-- <ion-list-header>Hardt Consulting</ion-list-header> -->
+          <ion-note>rynhardtcloete@gmail.com</ion-note>
+          <!-- <ion-note>+27 71 671 0583</ion-note> -->
+
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected" [routerLinkActiveOptions]="{exact: true}">
+              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+
+        <ion-list id="labels-list">
+          <ion-list-header>Specialties</ion-list-header>
+
+          <ion-item *ngFor="let label of labels" lines="none">
+            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
+            <ion-label>{{ label }}</ion-label>
+          </ion-item>
+        </ion-list>
+
+        <!-- <ion-list id="labels-list">
+          <ion-list-header>Languages</ion-list-header>
+
+          <ion-item *ngFor="let language of languages" lines="none">
+            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
+            <ion-label>{{ language }}</ion-label>
+          </ion-item>
+        </ion-list> -->
+
+        <ion-list id="theme-list">
+          <ion-item>
+            <ion-label>{{ themeService.darkMode ? 'Dark' : 'Light' }} Mode:</ion-label>
+            <ion-toggle [ngModel]="themeService.darkMode | async"
+            (ngModelChange)="themeService.darkMode.next($event)"></ion-toggle>
+          </ion-item>
+          <ion-button color="medium" size="small" href="javascript:;" (click)="themeService.SaveThemeMode()">remember my preference?</ion-button>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
